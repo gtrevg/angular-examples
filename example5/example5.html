@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Scoping</title>
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="../vendor/bootstrap/3.2.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../vendor/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+    <!-- mobile native feel -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+
+    <!-- angular -->
+    <script src="../vendor/angularjs/1.2.26/angular.js"></script>
+
+
+    <!-- UI elements you know you'll need:  http://angular-ui.github.io/bootstrap/ -->
+    <script src="../vendor/ui-bootstrap/0.11.2/ui-bootstrap-tpls-0.11.2.min.js"></script>
+
+    <!-- see note under http://angular-ui.github.io/bootstrap/#getting_started - CSS -->
+    <style>
+      .nav, .pagination, .carousel, .panel-title a { cursor: pointer; }
+      body { padding: 20px; }
+    </style>
+
+
+  <script>
+  angular.module('app', [])
+  .controller('MessageCtl', ['$scope', function($scope) {
+    $scope.message = "Hello Scoped World";
+
+    $scope.showAlert = function() {
+      alert($scope.message);
+    };
+
+
+  }]);
+  </script>
+  </head>
+  <body ng-app="app" ng-init="scopes = [1, 2, 3]">
+
+    <h1>Data Binding + Scope + ng-repeat</h1>
+
+    <div ng-repeat="scope in scopes" ng-controller="MessageCtl" style="border: 1px solid; padding: 20px; margin: 20px;">
+      <h2>Scope #{{ scope }}</h2>
+      {{ message || "No message." }}
+      <br />
+      <br />
+      <input type="text" ng-model="message" />
+      <button class='btn btn-default' ng-click="showAlert()">Show Alert {{ scope }}</button>
+    </div>
+
+  </body>
+</html>
