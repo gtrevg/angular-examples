@@ -9,7 +9,7 @@ Uses some of the following elements:
 * https://code.angularjs.org/1.2.26/docs/misc/downloading
 * http://angular-ui.github.io/bootstrap/
 
-These libraries have been downloaded and stored in the `vendors`
+These libraries have been downloaded and stored in the `vendor`
 directory in order to be able to work offline.
 
 ## Examples
